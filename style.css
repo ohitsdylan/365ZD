@@ -1590,7 +1590,8 @@ User Profile Template Styles
 
 .profile_info-about_name,
 .profile-quick_links-title,
-.profile_info-about_name-recent h2 {
+.profile_info-about_name-recent h2,
+.setting_title {
     font-size: 1rem;
     font-weight: bold;
 }
@@ -1601,7 +1602,9 @@ User Profile Template Styles
 
 .profile_info-about_name-stats,
 .profile_info-about_name-recent ul,
-.profile-quick_links li {
+.profile-quick_links li,
+.setting_form label,
+.setting_form input {
     font-size: 0.8rem;
 }
 
@@ -1616,6 +1619,30 @@ User Profile Template Styles
 
 .internal {
     display: none;
+}
+
+/* Modal Settings Pop Up */
+.setting_group {
+    margin: 12px 0;
+}
+
+.setting_group:first-child {
+    margin-top: 0;
+}
+
+.setting_form input {
+    margin-top: 0.47rem;
+}
+
+/* Change Bootstrap default corner radius */
+.modal-header {
+    border-top-right-radius: 2px !important;
+    border-top-left-radius: 2px !important;
+}
+
+.modal-footer {
+    border-bottom-right-radius: 2px !important;
+    border-bottom-left-radius: 2px !important;
 }
 
 /*

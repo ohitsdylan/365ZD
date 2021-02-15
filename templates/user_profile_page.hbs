@@ -1,3 +1,62 @@
+<!-- HelpCenter Settings Modal -->
+<div class="modal fade" id="zdSettings" tabindex="-1" aria-labelledby="zdSettings" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title setting_title" id="zdSettings">HelpCenter Settings</div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="ph-x" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+
+                    <div class="row setting_group">
+                        <div class="col-12 setting_title">Search Bar Location:</div>
+                        <div class="col-sm-12 col-md-6 form-check setting_form">
+                            <input class="form-check-input" type="radio" name="searchBarLoc" id="searchBarTop" value="top">
+                            <label class="form-check-label" for="searchBarTop">Top (Header)</label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 form-check setting_form">
+                            <input class="form-check-input" type="radio" name="searchBarLoc" id="searchBarBottom" value="bottom" checked>
+                            <label class="form-check-label" for="searchBarBottom">Bottom (Navigation Bar)</label>
+                        </div>
+                    </div>
+
+                    <div class="row setting_group">
+                        <div class="col-12 setting_title">Navigation Menu Location:</div>
+                        <div class="col-sm-12 col-md-6 form-check setting_form">
+                            <input class="form-check-input" type="radio" name="navMenuLoc" id="navMenuTop" value="top">
+                            <label class="form-check-label" for="navMenuTop">Top</label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 form-check setting_form">
+                            <input class="form-check-input" type="radio" name="navMenuLoc" id="navMenuBottom" value="bottom" checked>
+                            <label class="form-check-label" for="navMenuBottom">Bottom</label>
+                        </div>
+                    </div>
+
+                    <div class="row setting_group">
+                        <div class="col-12 setting_title">Customize Quick Actions:</div>
+                        <div class="col-sm-12 col-md-6 form-check setting_form">
+                            <input class="form-check-input" type="text" name="quickActionLeft" id="actionNameLeft" value="Submit Ticket">
+                            <label class="form-check-label" for="actionNameLeft">Left Quick Action Title</label>
+                        </div>
+                        <div class="col-sm-12 col-md-6 form-check setting_form">
+                            <input class="form-check-input" type="text" name="quickActionCenter" id="actionNameCenter" value="Wing Cards">
+                            <label class="form-check-label" for="actionNameCenter">Center Quick Action Title</label>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Start User Profile Template -->
 <div class="container">
     <div class="row profile_info">
@@ -8,13 +67,18 @@
         <div class="col-12 profile_info-about">
             <div class="profile_info-about_name">
                 {{#if user.url}}
-                    <a href="{{user.url}}" target="_zendesk_lotus" title="{{t 'open_user_in_support'}}">{{user.name}}</a>
+                    <a href="{{user.url}}" target="_zendesk_lotus"
+                        title="{{t 'open_user_in_support'}}">{{user.name}}</a>
                 {{else}}
                     {{user.name}}
                 {{/if}}
 
                 <a role="button" class="profile_info-about_name-edit" title="Opens a dialog" data-action="edit-profile" href="#">
                     <i class="ph-pencil-line-bold"></i>
+                </a>
+
+                <a role="button" class="profile_info-zd_settings" title="Opens a dialog to change HelpCenter settings." data-toggle="modal" data-target="#zdSettings" href="#">
+                    <i class="ph-faders-bold"></i>
                 </a>
             </div>
 
@@ -53,12 +117,12 @@
                 {{recent_articles}}
             </div>
 
-        </div>		
-	</div>
+        </div>
+    </div>
 
     <div class="row profile-quick_links">
 
-        <div class="col-12 col-sm-12 col-md-6">          
+        <div class="col-12 col-sm-12 col-md-6">
             <div class="profile-quick_links-title">Quick Links</div>
             <ul>
                 <a href="https://adm.365retailmarkets.com/public/login">
@@ -67,7 +131,8 @@
                 <a href="https://smarthq.365retailmarkets.com/smarthq/">
                     <li>SmartHQ</li>
                 </a>
-                <a href="https://live.air-vend.com/authentication-page?__AUTHURL=https%3a%2f%2flive.app.air-vend.com%2fAccount%2fVerifyAuth">
+                <a
+                    href="https://live.air-vend.com/authentication-page?__AUTHURL=https%3a%2f%2flive.app.air-vend.com%2fAccount%2fVerifyAuth">
                     <li>AirVend Live</li>
                 </a>
                 <a href="https://www.mymarketaccount.com/Login.aspx">
@@ -91,18 +156,18 @@
         <div class="col-12 col-sm-12 col-md-6">
             <div class="profile-quick_links-title">Help</div>
             <ul>
-            <a href="https://365retailmarkets.zendesk.com/access/help">
-                <li>Reset Password</li>
-            </a>
-            <a href="https://ideas.365retailmarkets.com/ideas/new">
-                <li>Share Your Ideas</li>
-            </a>
-            <a href="{{page_path 'new_request'}}">
-                <li>Submit New Ticket</li>
-            </a>
-            <a href="{{page_path 'new_request'}}">
-                <li>Contact Us</li>
-            </a>
+                <a href="https://365retailmarkets.zendesk.com/access/help">
+                    <li>Reset Password</li>
+                </a>
+                <a href="https://ideas.365retailmarkets.com/ideas/new">
+                    <li>Share Your Ideas</li>
+                </a>
+                <a href="{{page_path 'new_request'}}">
+                    <li>Submit New Ticket</li>
+                </a>
+                <a href="{{page_path 'new_request'}}">
+                    <li>Contact Us</li>
+                </a>
         </div>
 
         <div class="col-12 col-sm-12 col-md-6 internal">
@@ -123,10 +188,12 @@
                 <a href="https://365retailmarkets.atlassian.net/">
                     <li>JIRA</li>
                 </a>
-                <a href="https://docs.google.com/spreadsheets/d/1QyG-8v55vC5kF4wwcRi5QPxkCheIbdiA-GeYBUDgNjg/edit?ts=563228aa#gid=0">
+                <a
+                    href="https://docs.google.com/spreadsheets/d/1QyG-8v55vC5kF4wwcRi5QPxkCheIbdiA-GeYBUDgNjg/edit?ts=563228aa#gid=0">
                     <li>LMI Alert Contact List</li>
                 </a>
-                <a href="https://docs.google.com/spreadsheets/d/1Vm3bJ9M46pkRm6bI0fd7E1YOZh32_vMnidepWkEX18Y/edit#gid=982652738">
+                <a
+                    href="https://docs.google.com/spreadsheets/d/1Vm3bJ9M46pkRm6bI0fd7E1YOZh32_vMnidepWkEX18Y/edit#gid=982652738">
                     <li>RMA Tracking Log</li>
                 </a>
             </ul>
@@ -169,7 +236,8 @@
         <div class="col-12 col-sm-12 col-md-6 internal">
             <div class="profile-quick_links-title">Emulators</div>
             <ul>
-                <a href="https://www.cisco.com/assets/sol/sb/RV215W_Emulators/RV215W_Emulator_v1.0.0.16/default_EN.asp.htm">
+                <a
+                    href="https://www.cisco.com/assets/sol/sb/RV215W_Emulators/RV215W_Emulator_v1.0.0.16/default_EN.asp.htm">
                     <li>Cisco RV215W Emulator</li>
                 </a>
                 <a href="https://www.cisco.com/assets/sol/sb/RV110W_Emulators/RV110W_Emulator_v1.0.0.2/default.asp.htm">
